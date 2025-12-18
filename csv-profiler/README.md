@@ -42,7 +42,7 @@ The project evolves gradually from simple Python scripts to a clean Python packa
 ------------------
 
 **Project Structure**
-
+```text
 csv-profiler/
 ├─ README.md
 ├─ pyproject.toml
@@ -59,7 +59,7 @@ csv-profiler/
       ├─ render.py
       ├─ cli.py
       └─ app.py
-
+```
 -------------
 
 **What to Include / Exclude in the Repository**
@@ -152,3 +152,7 @@ From the project root directory:
 
 5-Save outputs locally
 
+--------------------
+## Images
+
+![This is an alt text.](img/img1.png)
