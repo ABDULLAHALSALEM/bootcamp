@@ -40,9 +40,10 @@ The project evolves gradually from simple Python scripts to a clean Python packa
 
 - Safe error handling (no Python tracebacks)
 ------------------
+```md
+## Project Structure
 
-**Project Structure**
-
+```text
 csv-profiler/
 ├─ README.md
 ├─ pyproject.toml
@@ -59,6 +60,7 @@ csv-profiler/
       ├─ render.py
       ├─ cli.py
       └─ app.py
+
 
 -------------
 
