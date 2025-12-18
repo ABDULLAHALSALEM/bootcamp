@@ -100,15 +100,19 @@ Include
 
 - Streamlit
 
-**Install dependencies if needed:**
-- uv pip install typer streamlit
+
+**After cloning the repository, install them using:**
+```
+uv sync
+```
 
 **How to Run the Project**
 1) Using CLI (Typer)
 
 From the project root directory:
-- uv run python -m csv_profiler.cli data/sample.csv --out outputs/
-
+```
+uv run python -m csv_profiler.cli data/sample.csv --out outputs/
+```
 
 
 **This will:**
@@ -125,7 +129,9 @@ From the project root directory:
 
 
 **To view CLI help:**
-- uv run python -m csv_profiler.cli --help
+```
+uv run python -m csv_profiler.cli --help
+```
 
 -------------
 
@@ -135,8 +141,9 @@ From the project root directory:
 - streamlit run src/csv_profiler/app.py
 
 ***Important:***
-
--  run Streamlit from inside src/
+```
+run Streamlit from inside src/
+```
 
 ------------------
 
