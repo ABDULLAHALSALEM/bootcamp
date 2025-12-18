@@ -159,3 +159,8 @@ run Streamlit from inside src/
 
 5-Save outputs locally
 
+
+--------------------
+## Images
+
+![This is an alt text.](img/img1.png)
