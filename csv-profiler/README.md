@@ -40,13 +40,8 @@ The project evolves gradually from simple Python scripts to a clean Python packa
 
 - Safe error handling (no Python tracebacks)
 ------------------
-```md
-## Project Structure
 
-<<<<<<< HEAD
 **Project Structure**
-=======
->>>>>>> 30f91f7e7f342f1d0b462518fd926b374dcb6a47
 ```text
 csv-profiler/
 ├─ README.md
@@ -65,10 +60,6 @@ csv-profiler/
       ├─ cli.py
       └─ app.py
 ```
-<<<<<<< HEAD
-=======
-
->>>>>>> 30f91f7e7f342f1d0b462518fd926b374dcb6a47
 -------------
 
 **What to Include / Exclude in the Repository**
@@ -109,15 +100,19 @@ Include
 
 - Streamlit
 
-**Install dependencies if needed:**
-- uv pip install typer streamlit
+
+**After cloning the repository, install them using:**
+```
+uv sync
+```
 
 **How to Run the Project**
 1) Using CLI (Typer)
 
 From the project root directory:
-- uv run python -m csv_profiler.cli data/sample.csv --out outputs/
-
+```
+uv run python -m csv_profiler.cli data/sample.csv --out outputs/
+```
 
 
 **This will:**
@@ -134,7 +129,9 @@ From the project root directory:
 
 
 **To view CLI help:**
-- uv run python -m csv_profiler.cli --help
+```
+uv run python -m csv_profiler.cli --help
+```
 
 -------------
 
@@ -144,8 +141,9 @@ From the project root directory:
 - streamlit run src/csv_profiler/app.py
 
 ***Important:***
-
--  run Streamlit from inside src/
+```
+run Streamlit from inside src/
+```
 
 ------------------
 
@@ -160,6 +158,7 @@ From the project root directory:
 4-Download JSON or Markdown
 
 5-Save outputs locally
+
 
 --------------------
 ## Images
