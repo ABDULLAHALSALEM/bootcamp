@@ -60,7 +60,7 @@ csv-profiler/
       ├─ render.py
       ├─ cli.py
       └─ app.py
-
+```
 
 -------------
 
