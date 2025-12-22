@@ -163,4 +163,4 @@ run Streamlit from inside src/
 --------------------
 ## Images
 
-![This is an alt text.](img/img1.png)
+![This is an alt text.](csv-profiler/img/img1.png)
