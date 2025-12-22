@@ -42,21 +42,22 @@ The project evolves gradually from simple Python scripts to a clean Python packa
 ------------------
 
 **Project Structure**
-```text
-csv-profiler/
-├─ README.md
-├─ pyproject.toml
-├─ data/
-│  └─ sample.csv
-├─ outputs/
-│  ├─ report.json
-│  └─ report.md
-└─ src/
-   └─ csv_profiler/
-      ├─ __init__.py
-      ├─ io.py
-      ├─ profile.py
-      ├─ render.py
-      ├─ cli.py
-      └─ app.py
+
 ```
+your-project/
+├── data/
+│   ├── raw/          # Immutable input data
+│   ├── cache/        # Cached API responses
+│   ├── processed/    # Clean, analysis-ready outputs
+│   └── external/      # Reference data
+├── src/
+│   └── data_workflow/  # Your package (or project_name/)
+│       └── __init__.py
+├── scripts/          # Run scripts
+├── reports/
+│   └── figures/      # Exported charts
+├── pyproject.toml    # Dependencies
+├── README.md         # Project documentation
+└── .gitignore        # Git ignore file
+```
+
