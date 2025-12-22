@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./week_2/src/data_",
+        "./week_2/src/data_workflow"
+    ]
+}
