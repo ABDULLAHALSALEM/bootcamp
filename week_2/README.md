@@ -61,3 +61,31 @@ your-project/
 └── .gitignore        # Git ignore file
 ```
 
+## Images 1
+![This is an alt text.](reports\figures\revenue_by_country.png)
+
+
+## Images 2
+![This is an alt text.](reports\figures\revenue_trend_monthly.png)
+
+## Images 3
+![This is an alt text.](reports\figures\amount_hist_winsor.png)
+
+
+
+## Images 4
+![This is an alt text.](reports\figures\date_per_amount.png)
+
+
+
+## Images run_day1_load
+![This is an alt text.](reports\figures\run_day1_load.png)
+
+## Images run_day2_clean
+![This is an alt text.](reports\figures\run_day2_clean.png)
+
+## Images run_day3_build_analytics
+![This is an alt text.](reports\figures\run_day3_build_analytics.png)
+
+## Images run_etl
+![This is an alt text.](reports\figures\run_etl.png)

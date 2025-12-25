@@ -1,31 +1,46 @@
-#!/usr/bin/env python3
-import logging
 from pathlib import Path
 import sys
-
-# --- Setup ROOT and sys.path first ---
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.append(str(ROOT / "src"))
-
+import json
+from datetime import datetime, timezone
+import logging
+# make `src/` importable when running as a script
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+str(SRC) not in sys.path
+sys.path.insert(0, str(SRC))
+#week_2\src\data_workflow\config.py
 from data_workflow.config import make_paths
+from data_workflow.io import read_orders_csv, read_users_csv, write_parquet
 from data_workflow.transforms import enforce_schema
-from data_workflow.io import read_orders_csv, write_parquet
-
-logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.INFO, format="%(levelname)s:%(name)s:%(message)s")
-
-paths = make_paths(ROOT)
-
+log = logging.getLogger(__name__)
 
 def main() -> None:
-    df = read_orders_csv(paths.raw / "users.csv")
-    df = enforce_schema(df)  
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
 
-    write_parquet(df, paths.processed / "users.parquet")
+    p = make_paths(ROOT)
+    orders = enforce_schema(read_orders_csv(p.raw / "orders.csv"))
+    users = read_users_csv(p.raw / "users.csv")
 
-    logger.info("Row Count: %s", len(df))
-    logger.info("Paths: %s", paths)
+    log.info("Loaded rows: orders=%s users=%s", len(orders), len(users))
+    log.info("Orders dtypes:\n%s", orders.dtypes)
 
+    out_orders = p.processed / "orders.parquet"
+    out_users = p.processed / "users.parquet"
+    write_parquet(orders, out_orders)
+    write_parquet(users, out_users)
+
+    meta = { 
+    "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+    "rows": {"orders": int(len(orders)), "users": int(len(users))},
+    "outputs": {"orders": str(out_orders), "users": str(out_users)},
+    }
+
+    meta_path = p.processed / "_run_meta.json"
+    meta_path.write_text(json.dumps(meta, indent=2), encoding="utf-8")
+
+
+    log.info("Wrote:%s",p.processed)
+    log.info("Run meta:%s",meta_path)
 
 if __name__ == "__main__":
     main()
