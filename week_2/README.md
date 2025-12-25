@@ -1,66 +1,39 @@
-***CSV Profiler***
--
-**Overview**
+# Data Workflow
 
-CSV Profiler is a Python project .
-The project aims to analyze CSV files and generate structured profiling reports.
+This project implements a simple and structured data workflow for loading,
+validating, and processing CSV data into a clean Parquet format.
 
-The project evolves gradually from simple Python scripts to a clean Python package with:
+The project is designed to demonstrate:
+- Clear project structure
+- Reusable Python modules
+- Safe data loading and transformation
+- Simple batch execution using a runner script
 
-- Reusable functions
+--------------------------------------------------
 
-- Command-Line Interface (CLI) using Typer
+## Project Structure
 
-- Graphical User Interface (GUI) using Streamlit
-
-------------------------------
-**Features**
-
-- Read and analyze CSV files
-
-- Detect missing values (empty, NA, null, etc.)
-
-- Infer column data types (number / text)
-
-- Compute statistics:
-
-   - Numeric: count, missing, unique, min, max, mean
-
-   - Text: count, missing, unique, top values
-
-- Export reports as:
-
-  - JSON
-
-  - Markdown
-
-- CLI support using Typer
-
-- Interactive GUI using Streamlit
-
-- Safe error handling (no Python tracebacks)
-------------------
-
-**Project Structure**
-
-```
-your-project/
-├── data/
-│   ├── raw/          # Immutable input data
-│   ├── cache/        # Cached API responses
-│   ├── processed/    # Clean, analysis-ready outputs
-│   └── external/      # Reference data
-├── src/
-│   └── data_workflow/  # Your package (or project_name/)
-│       └── __init__.py
-├── scripts/          # Run scripts
-├── reports/
-│   └── figures/      # Exported charts
-├── pyproject.toml    # Dependencies
-├── README.md         # Project documentation
-└── .gitignore        # Git ignore file
+```text
+data-workflow/
+├─ README.md
+├─ pyproject.toml
+├─ run_day1_load.py
+├─ data/
+│  ├─ raw/
+│  │  └─ users.csv
+│  ├─ cache/
+│  ├─ processed/
+│  │  └─ users.parquet
+│  └─ external/
+└─ src/
+   └─ data_workflow/
+      ├─ __init__.py
+      ├─ config.py
+      ├─ io.py
+      └─ transforms.py
 ```
 
+<<<<<<< HEAD
 ## Images 1
 ![This is an alt text.](reports\figures\revenue_by_country.png)
 
@@ -89,3 +62,85 @@ your-project/
 
 ## Images run_etl
 ![This is an alt text.](reports\figures\run_etl.png)
+=======
+
+## All Required Python Source Files
+
+- **run_day1_load.py**  
+  Entry-point script that executes the Day 1 data loading workflow.
+
+- **src/data_workflow/config.py**  
+  Centralized and immutable project path configuration.
+
+- **src/data_workflow/io.py**  
+  Handles CSV reading and Parquet writing operations.
+
+- **src/data_workflow/transforms.py**  
+  Applies schema enforcement and data type normalization.
+
+- **src/data_workflow/__init__.py**  
+  Marks the data_workflow directory as a Python package.
+
+---
+
+## Requirements
+
+- Python 3.11
+- pandas
+- pyarrow
+- uv
+
+---
+
+## After Cloning the Repository, Install Them Using
+
+```bash
+uv sync
+```
+
+## How to Run (`run_day1_load.py`)
+
+The `run_day1_load.py` script performs the Day 1 data loading process.  
+It reads raw CSV data, enforces the schema, and writes the processed  
+output in Parquet format.
+
+---
+
+### Prerequisites
+
+Make sure all dependencies are installed:
+
+```bash
+uv sync
+```
+### Run Location
+
+All commands must be executed from the project root directory:
+
+```text
+data-workflow/
+├─ run_day1_load.py
+├─ src/
+└─ data/
+```
+
+### Running the Script
+
+Execute the workflow using `uv`:
+
+```bash
+uv run python run_day1_load.py
+```
+
+### Notes
+
+- Ensure the input file exists at:
+  ```text
+  data/raw/users.csv
+```
+
+- Output directories are created automatically if missing.
+- Invalid numeric values are safely coerced to `NaN`.
+- The workflow is designed to be simple, reproducible, and safe.
+
+>>>>>>> f44c850812bb27b30da30e2e72f03ce2f4bd011a
